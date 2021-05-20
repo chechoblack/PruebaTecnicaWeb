@@ -1,7 +1,28 @@
 ﻿
+@model PruebaTecnicaWeb.Entidades.NuevoServicioClass
 @{
-    ViewBag.Title = "NuevoServicio";
+    ViewBag.Title = "Nuevo Servicio";
 }
 
-<h2>NuevoServicio</h2>
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("NuevoServicio", "Servicios",FormMethod.Post))
+{
+    <div class="col-md-12">
+        <div>
+            @Html.LabelFor(d => d.Descripcion)
+            @Html.TextBoxFor(d => d.Descripcion, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.Descripcion, null, new { @class = "red" })
+        </div>
+        <div>
+            @Html.LabelFor(d => d.Monto)
+            @Html.TextBoxFor(d => d.Monto, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.Monto, null, new { @class = "red" })
+        </div>
+        <br />
+        <div style="text-align:right">
+            <input value="Guardar" type="submit" class="btn btn-primary" />
+        </div>
+    </div>
+}
 

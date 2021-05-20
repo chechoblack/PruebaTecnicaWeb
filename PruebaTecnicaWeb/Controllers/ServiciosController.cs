@@ -12,11 +12,11 @@ namespace PruebaTecnicaWeb.Controllers
         // GET: Servicios
         public ActionResult Index()
         {
-            List<ServiciosClass> lst;
+            List<ServicioClass> lst;
             using (PruebaTecnicaEntities db = new PruebaTecnicaEntities())
             {
                 lst = (from d in db.Servicios
-                       select new ServiciosClass
+                       select new ServicioClass
                        {
                            ID_Servicio = d.ID_Servicio,
                            Descripcion = d.Descripcion,

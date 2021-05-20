@@ -157,7 +157,7 @@
     <Compile Include="Controllers\VehiculoController.cs" />
     <Compile Include="Entidades\NuevoServicioClass.cs" />
     <Compile Include="Entidades\NuevoVehiculoClass.cs" />
-    <Compile Include="Entidades\ServiciosClass.cs" />
+    <Compile Include="Entidades\ServicioClass.cs" />
     <Compile Include="Entidades\VehiculoClass.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

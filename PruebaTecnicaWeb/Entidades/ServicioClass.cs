@@ -5,7 +5,7 @@ using System.Web;
 
 namespace PruebaTecnicaWeb.Entidades
 {
-    public class ServiciosClass
+    public class ServicioClass
     {
         public int ID_Servicio { get; set; }
         public string Descripcion { get; set; }

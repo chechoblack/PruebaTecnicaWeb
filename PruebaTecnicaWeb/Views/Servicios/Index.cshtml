@@ -1,7 +1,30 @@
 ﻿
+@model List<PruebaTecnicaWeb.Entidades.ServicioClass>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Servicios";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
+<div class="row" style="text-align:right; padding:5px">
+    <a href="~/Servicios/NuevoServicio" class="btn btn-primary">Nuevo</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>Descripcion</th>
+                <th>Monto</th>
+            </tr>
+            @foreach (var pElemento in Model)
+            {
+                <tr>
+                    <td>@pElemento.ID_Servicio</td>
+                    <td>@pElemento.Descripcion</td>
+                    <td>@pElemento.Monto</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
 
