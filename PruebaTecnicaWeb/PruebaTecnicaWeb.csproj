@@ -222,6 +222,7 @@
     <Content Include="Views\Servicios\Index.cshtml" />
     <Content Include="Views\Servicios\NuevoServicio.cshtml" />
     <Content Include="Views\Servicios\EditarServicio.cshtml" />
+    <Content Include="Views\Vehiculo\EditarVehiculo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -109,7 +109,6 @@ namespace PruebaTecnicaWeb.Controllers
                 return Redirect("~/Servicios");
 
             }
-            return View(model);
         }
     }
 }

@@ -59,5 +59,61 @@ namespace PruebaTecnicaWeb.Controllers
                 throw new Exception(ex.Message);
             }
         }
+        public ActionResult EditarVehiculo(int id)
+        {
+            VehiculoClass model = new VehiculoClass();
+            using (PruebaTecnicaEntities db = new PruebaTecnicaEntities())
+            {
+                var pVehiculo = db.Vehiculo.Find(id);
+                model.Placa = pVehiculo.Placa;
+                model.Dueno = pVehiculo.Dueno;
+                model.Marca = pVehiculo.Marca;
+                model.IdVehiculo = pVehiculo.ID_Vehiculo;
+
+            }
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult EditarVehiculo(NuevoVehiculoClass model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    using (PruebaTecnicaEntities db = new PruebaTecnicaEntities())
+                    {
+                        var pVehiculo = db.Vehiculo.Find(model.IdVehiculo);
+                        pVehiculo.Placa = model.Placa;
+                        pVehiculo.Dueno = model.Dueno;
+                        pVehiculo.Marca = model.Marca;
+                        pVehiculo.ID_Vehiculo = model.IdVehiculo;
+
+                        db.Entry(pVehiculo).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                    return Redirect("~/Vehiculo");
+                }
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        [HttpGet]
+        public ActionResult EliminarVehiculo(int id)
+        {
+            VehiculoClass model = new VehiculoClass();
+            using (PruebaTecnicaEntities db = new PruebaTecnicaEntities())
+            {
+
+                var pVehiculo = db.Vehiculo.Find(id);
+                db.Vehiculo.Remove(pVehiculo);
+                db.SaveChanges();
+
+                return Redirect("~/Vehiculo");
+
+            }
+        }
     }
 }

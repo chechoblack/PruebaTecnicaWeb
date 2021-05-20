@@ -23,6 +23,10 @@
                     <td>@pElemento.Placa</td>
                     <td>@pElemento.Dueno</td>
                     <td>@pElemento.Marca</td>
+                    <td>
+                        <a class="btn btn-default" href="~/Vehiculo/EditarVehiculo/@pElemento.IdVehiculo">Editar</a>
+                        <a class="btn btn-danger" href="~/Vehiculo/EliminarVehiculo/@pElemento.IdVehiculo">Eliminar</a>
+                    </td>
                 </tr>
             }
         </table>
