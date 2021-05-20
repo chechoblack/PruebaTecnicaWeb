@@ -1,0 +1,30 @@
+﻿@model PruebaTecnicaWeb.Entidades.NuevoVehiculoClass
+@{
+    ViewBag.Title = "Nuevo Vehiculo";
+}
+
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm("NuevoVehiculo", "Vehiculo", FormMethod.Post))
+{
+    <div class="col-md-12">
+        <div>
+            @Html.LabelFor(d => d.Placa)
+            @Html.TextBoxFor(d => d.Placa, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.Placa,null, new { @class = "red"})
+        </div>
+        <div>
+            @Html.LabelFor(d => d.Dueno)
+            @Html.TextBoxFor(d => d.Dueno, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.Dueno, null, new { @class = "red" })
+        </div>
+        <div>
+            @Html.LabelFor(d => d.Marca)
+            @Html.TextBoxFor(d => d.Marca, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.Marca, null, new { @class = "red" })
+        </div>
+        <br />
+        <div style="text-align:right">
+            <input value="Guardar" type="submit" class="btn btn-primary"/>
+        </div>
+    </div>
+}
