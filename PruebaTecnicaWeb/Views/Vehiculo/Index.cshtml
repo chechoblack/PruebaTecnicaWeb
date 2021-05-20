@@ -1,0 +1,27 @@
+﻿@model List<PruebaTecnicaWeb.Entidades.VehiculoClass>
+@{
+    ViewBag.Title = "Vehiculo";
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="row">
+    <div class="col-md-12">
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Placa</th>
+                <th>Dueño</th>
+                <th>Marca</th>
+            </tr>
+            @foreach (var pElemento in Model)
+            {
+                <tr>
+                    <td>@pElemento.IdVehiculo</td>
+                    <td>@pElemento.Placa</td>
+                    <td>@pElemento.Dueno</td>
+                    <td>@pElemento.Marca</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
