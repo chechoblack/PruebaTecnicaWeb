@@ -15,6 +15,7 @@
                 <th>#</th>
                 <th>Descripcion</th>
                 <th>Monto</th>
+                <th>Opciones</th>
             </tr>
             @foreach (var pElemento in Model)
             {
@@ -22,6 +23,10 @@
                     <td>@pElemento.ID_Servicio</td>
                     <td>@pElemento.Descripcion</td>
                     <td>@pElemento.Monto</td>
+                    <td>
+                        <a class="btn btn-default" href="~/Servicios/EditarServicio/@pElemento.ID_Servicio">Editar</a>
+                        <a class="btn btn-danger" href="~/Servicios/EliminarServicio/@pElemento.ID_Servicio">Eliminar</a>
+                    </td>
                 </tr>
             }
         </table>

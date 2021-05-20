@@ -1,13 +1,14 @@
-﻿@model PruebaTecnicaWeb.Entidades.NuevoServicioClass
+﻿@model PruebaTecnicaWeb.Entidades.ServicioClass
 @{
-    ViewBag.Title = "Nuevo Servicio";
+    ViewBag.Title = "Editar Servicio";
 }
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm("NuevoServicio", "Servicios",FormMethod.Post))
+@using (Html.BeginForm("EditarServicio", "Servicios", FormMethod.Post))
 {
     <div class="col-md-12">
+        @Html.HiddenFor(d => d.ID_Servicio)
         <div>
             @Html.LabelFor(d => d.Descripcion)
             @Html.TextBoxFor(d => d.Descripcion, "", new { @class = "form-control" })

@@ -56,5 +56,60 @@ namespace PruebaTecnicaWeb.Controllers
                 throw new Exception(ex.Message);
             }
         }
+        public ActionResult EditarServicio(int id)
+        {
+            ServicioClass model = new ServicioClass();
+            using (PruebaTecnicaEntities db = new PruebaTecnicaEntities())
+            {
+                var pServicio = db.Servicios.Find(id);
+                model.Descripcion = pServicio.Descripcion;
+                model.Monto = pServicio.Monto;
+                model.ID_Servicio = pServicio.ID_Servicio;
+
+            }
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult EditarServicio(ServicioClass model)
+        {
+            try
+            {            
+                if (ModelState.IsValid)
+                {
+                    using (PruebaTecnicaEntities db = new PruebaTecnicaEntities())
+                    {
+                        var pServicio = db.Servicios.Find(model.ID_Servicio);
+                        pServicio.Descripcion = model.Descripcion;
+                        pServicio.Monto = model.Monto;
+                        pServicio.ID_Servicio = model.ID_Servicio;
+
+                        db.Entry(pServicio).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                    return Redirect("~/Servicios");
+                }
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        [HttpGet]
+        public ActionResult EliminarServicio(int id)
+        {
+            ServicioClass model = new ServicioClass();
+            using (PruebaTecnicaEntities db = new PruebaTecnicaEntities())
+            {
+                
+                var pServicio = db.Servicios.Find(id);
+                db.Servicios.Remove(pServicio);
+                db.SaveChanges();
+
+                return Redirect("~/Servicios");
+
+            }
+            return View(model);
+        }
     }
 }
